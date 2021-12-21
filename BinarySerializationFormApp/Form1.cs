@@ -59,7 +59,12 @@ namespace BinarySerializationFormApp
                 saveFileDialog1.Title = "Saving Process";
                 saveFileDialog1.Filter = "(*.jpg) | *.jpg";
                 saveFileDialog1.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-                saveFileDialog1.FileName = Guid.NewGuid().ToString();
+
+                string fileNameGuid = Guid.NewGuid().ToString();
+                fileNameGuid = fileNameGuid.Replace("-", "");
+                saveFileDialog1.FileName = fileNameGuid;
+                
+
 
                 if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                 {
